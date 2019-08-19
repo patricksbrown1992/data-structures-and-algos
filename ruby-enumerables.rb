@@ -40,8 +40,18 @@ class Array
     true
   end
 
+  def my_join(split = '')
+    ans = ''
+    self.length.times do |i|
+      ans += self[i].to_s
+      ans += split unless i == self.length - 1
+    end
+
+    ans
+  end
+
 end 
 
 
 
-p [1,2,4].my_all? {|x| x > 0}
+p ['a', 'b', 'd'].my_join('%')
