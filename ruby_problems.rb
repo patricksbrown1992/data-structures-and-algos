@@ -20,8 +20,22 @@ def my_min(array)
         end
     end
     ans
+end
 
+def largest_contiguous_subsum(arr)
+  largest = arr.first
+  current = arr.first
+
+  return arr.max if arr.all? { |num| num < 0 }
+
+  arr.drop(1).each do |num|
+    current = 0 if current < 0
+    current += num
+    largest = current if current > largest
+  end
+
+  largest
 end
 
 
-
+p largest_contiguous_subsum([2, 3, -6, 7, -6, 7])
