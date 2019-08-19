@@ -10,17 +10,27 @@ class Array
   end
 
   def my_select(&prc)
-   ans = []
-
+    ans = []
     self.my_each do |item|
-      ans << item if prc.call(item)
+        ans << item if prc.call(item)
     end
 
     ans
   end
 
-end
+  def my_reject(&prc)
+    ans = []
+    self.my_each do |item|
+        ans << item if !prc.call(item)
+    end
+
+    ans
+
+ 
+  end
+
+end 
 
 
 
-p [1,2,4].my_select {|x| x > 1}
+p [1,2,4].my_reject {|x| x > 1}
