@@ -23,4 +23,5 @@ def my_min(array)
 
 end
 
-p my_min([-1, 0, 2, -2, 1])
+
+
