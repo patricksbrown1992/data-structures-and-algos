@@ -33,8 +33,15 @@ class Array
     false
   end
 
+  def my_all?(&prc)
+    self.my_each do |item|
+      return false if !prc.call(item)
+    end
+    true
+  end
+
 end 
 
 
 
-p [1,2,4].my_any? {|x| x > 5}
+p [1,2,4].my_all? {|x| x > 0}
